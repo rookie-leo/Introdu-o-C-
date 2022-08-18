@@ -1,7 +1,8 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-// #include <cstdio>
+#include <cmath>
+#include <vector>
 using namespace std;
 
 // Protótipos das funções. Isso é necessário
@@ -13,15 +14,115 @@ void operadoresLogico();
 void operadoresAtribuicao();
 void ponteiros();
 void trabalhandoString();
+void trabalhandoCmath();
+int trabalhandoSwitch();
+void trabalhandoVetorMatriz();
+void trabalhandoReferencia();
+void trabalhandoPonteiros(int a, int b);
 
 int main() {
   /*ponteiros();
   variaveisLocais();
   operadoresLogicos();
   operadoresLogico();
-  operadoresAtribuicao();*/
+  operadoresAtribuicao();
   trabalhandoString();
+  trabalhandoCmath();
+  trabalhandoSwitch();
+  trabalhandoVetorMatriz();
+  trabalhandoReferencia();*/
+  trabalhandoPonteiros(10, 20);
   return 0;
+}
+
+void trabalhandoPonteiros(int a, int b) {
+  int num;
+  int *referencia;
+
+  num = a;
+  
+  referencia = &num;
+  *referencia = b;
+
+  cout << num << endl;
+}
+
+void trabalhandoReferencia() {
+  string nome = "José";
+  string nomeReferencia = nome;
+
+  cout << &nome << " - " << nome << endl;
+  cout << &nomeReferencia << " - " << nomeReferencia << endl;
+  
+  nome = "Maria";
+
+  cout << nome << endl;
+  cout << nomeReferencia << endl;
+
+  cout << &nome << " - " << nome << endl;
+  cout << &nomeReferencia << " - " << nomeReferencia << endl;
+
+}
+
+void trabalhandoVetorMatriz() {
+  //declaração, inicialização e atribuição
+  int nota[4] = {2, 3, 7, 5};
+  int matriz[5][5], z, x;
+
+  // cout << nota[2] << endl;
+
+  // for (int i = 0; i < 4; i++) {
+  //   cout << nota[i] << endl;
+  // }
+
+  for (z; z < 5; z++) {
+    for (x; x < 5; x++) {
+      matriz[z][x] = x;
+      cout << matriz[z][x] << endl;
+    }
+  }
+  
+}
+
+int trabalhandoSwitch() {
+  int dia = 6;
+
+  switch(dia) {
+    case 1:
+      cout << "Segunda"; 
+      return dia;
+      break;
+    case 2:
+      cout << "Terça";
+      return dia;
+      break;
+    case 3:
+      cout << "Terça";
+      return dia;
+      break;
+    case 4:
+      cout << "Quarta";
+      return dia;
+      break;
+    case 5:
+      cout << "Quinta";
+      return dia;
+      break;
+    case 6:
+      cout << "Sexta";
+      return dia;
+      break;
+    defautl:
+      cout << "Valor invalido";
+    return dia;
+  }
+}
+
+void trabalhandoCmath() {
+  cout << sqrt(25) << endl;
+  cout << round(7.8) << endl;
+  cout << pow(5, 2) << endl;
+  cout << abs(-7) << endl;
 }
 
 void trabalhandoString()
@@ -37,6 +138,11 @@ void trabalhandoString()
   cout << "\n" << endl;
 
   printf("%s", nome.c_str());
+
+  cout << nome.size() << endl;
+	cout << nome.length() << endl;
+	cout << nome[0] << endl;
+	cout << nome.substr(2, 8) << endl;
 }
 
 void variaveisLocais() {
